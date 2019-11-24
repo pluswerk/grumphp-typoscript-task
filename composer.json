@@ -1,0 +1,6 @@
+{
+    "require": {
+        "helmich/typo3-typoscript-lint": "^2.0",
+        "phpro/grumphp": "^0.16.2"
+    }
+}

@@ -1,0 +1,144 @@
+page = PAGE
+page.includeJS {
+  index = /Generated/typo3.js
+}
+
+# Delete ATS JavaScript. This is needed to keep everything else running
+# @todo: Needs to be checked to get ATS extension running.
+page.includeJSFooter {
+  ats_languages >
+  ats_main >
+}
+
+page.includeCSS {
+  index = /Generated/typo3.css
+}
+
+[getenv("NODE_ACTIVE") == "TRUE"]
+  page.includeCSS.index >
+  page.includeJS.index := getEnv(NODE_DOMAIN)
+  page.includeJS.index := appendString(/typo3.js)
+  page.includeJS.index := prependString(https://)
+  page.includeJS.index.external = 1
+[global]
+
+page.headerData {
+  10 = TEXT
+  10.value = <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  15 = TEXT
+  15.value (
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4JL2M6');</script>
+<!-- End Google Tag Manager -->
+  )
+
+  20 = TEXT
+  20.value (
+  <script>
+        var Hyphenopoly = {
+            require: {
+                "de": "FORCEHYPHENOPOLY",
+            },
+            setup: {
+                selectors: {
+                    ".nav--box__text": {}
+                }
+            }
+        };
+  </script>
+  )
+
+  30 = TEXT
+  30.value = <script src="/Generated/hyphenopoly/Hyphenopoly_Loader.js"></script>
+
+  #include favicons
+  40 = TEXT
+  40.value = {$config.favicon}
+}
+
+page.10 = FLUIDTEMPLATE
+page.10 {
+  templateName = Default
+  templateRootPaths {
+    0 = EXT:asb_base_package/Resources/Private/Templates/
+  }
+
+  partialRootPaths {
+    0 = EXT:asb_base_package/Resources/Private/Partials/
+  }
+
+  layoutRootPaths {
+    0 = EXT:asb_base_package/Resources/Private/Layouts/
+  }
+
+  variables {
+    searchId = TEXT
+    searchId.value = {$searchId}
+    humhubBase = TEXT
+    humhubBase.value = {$applicationDomains.schema}://{$applicationDomains.humhub}/
+    humhubProfileBase = TEXT
+    humhubProfileBase.value = {$applicationDomains.schema}://{$applicationDomains.humhub}/u/
+    humhubProfileAppend = TEXT
+    humhubProfileAppend.value = /user/profile/home
+    humhubSettings = TEXT
+    humhubSettings.value = {$applicationDomains.schema}://{$applicationDomains.humhub}/user/account/edit
+    humhubAdmin = TEXT
+    humhubAdmin.value = {$applicationDomains.schema}://{$applicationDomains.humhub}/admin
+    humhubLogout = TEXT
+    humhubLogout.value = {$applicationDomains.schema}://{$applicationDomains.humhub}/user/auth/logout
+    humhubProfileImage = TEXT
+    humhubProfileImage.value = {$applicationDomains.schema}://{$applicationDomains.humhub}/uploads/profile_image/
+    shopAccount = TEXT
+    shopAccount.value = {$applicationDomains.schema}://{$applicationDomains.shop}/account
+    shopAddresses = TEXT
+    shopAddresses.value = {$applicationDomains.schema}://{$applicationDomains.shop}/address/index/sidebar
+    shopOrders = TEXT
+    shopOrders.value = {$applicationDomains.schema}://{$applicationDomains.shop}/account/orders
+  }
+
+  dataProcessing {
+    // global Navigation
+    10 = Pluswerk\AsbOutline\DataProcessing\OutlineDataProcessor
+    10 {
+      dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+          references.fieldName = tx_asboutline_footer_image
+        }
+      }
+    }
+
+    20 = Pluswerk\AsbBasePackage\DataProcessing\ContentMenuProcessor
+    20 {
+      defaultFieldUid = 1
+      dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+          special = directory
+          special.value.data = field:uid
+          as = contentNavigation
+          levels = 4
+          titleField = nav_title // title
+        }
+      }
+    }
+
+    30 = Pluswerk\AsbBasePackage\DataProcessing\BreadcrumbRecordMenuProcessor
+    30 {
+      breadcrumbAlias = menuBreadcrumb
+      dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+          special = rootline
+          special.range = 1|-1
+          as = menuBreadcrumb
+        }
+      }
+    }
+  }
+}
