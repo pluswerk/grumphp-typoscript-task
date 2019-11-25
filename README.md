@@ -1,4 +1,4 @@
-[![Travis](https://img.shields.io/travis/Kanti/LJSON.svg?style=flat-square)](https://travis-ci.com/pluswerk/grumphp-typoscript-task)
+[![Build Status](https://travis-ci.com/pluswerk/grumphp-typoscript-task.svg?branch=master)](https://travis-ci.com/pluswerk/grumphp-typoscript-task)
 
 # grumphp-typoscript-task
 
