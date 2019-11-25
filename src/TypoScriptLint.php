@@ -32,44 +32,44 @@ final class TypoScriptLint extends AbstractLinterTask
             [
                 'triggered_by' => ['typoscript'],
                 'sniffs' => [
-                    'Indentation' => [
+                    0 => [
+                        'class'      => 'Indentation',
                         'parameters' => [
-                            'useSpaces' => true,
-                            'indentPerLevel' => 2,
-                            'indentConditions' => true,
+                            'useSpaces'        => true,
+                            'indentPerLevel'   => 4,
+                            'indentConditions' => false,
                         ],
-                        'disabled' => false,
                     ],
-                    'DeadCode' => [
-                        'disabled' => false,
+                    1 => [
+                        'class' => 'DeadCode',
                     ],
-                    'OperatorWhitespace' => [
-                        'disabled' => false,
+                    2 => [
+                        'class' => 'OperatorWhitespace',
                     ],
-                    RepeatingRValueSniff::class => [
-                        'parameters' => [
-                            'ignoreClassNameValues' => true,
-                        ],
-                        'disabled' => false,
+                    3 => [
+                        'class' => 'RepeatingRValue',
                     ],
-                    'DuplicateAssignment' => [
-                        'disabled' => false,
+                    4 => [
+                        'class' => 'DuplicateAssignment',
                     ],
-                    'EmptySection' => [
-                        'disabled' => false,
+                    5 => [
+                        'class' => 'EmptySection',
                     ],
-                    'NestingConsistency' => [
+                    6 => [
+                        'class'      => 'NestingConsistency',
                         'parameters' => [
                             'commonPathPrefixThreshold' => 1,
                         ],
-                        'disabled' => false,
                     ],
                 ],
-                'paths' => [],
-                'filePatterns' => []
+                'paths'        => [],
+                'filePatterns' => [],
             ]
         );
         $resolver->addAllowedTypes('triggered_by', ['array']);
+        $resolver->addAllowedTypes('sniffs', ['array']);
+        $resolver->addAllowedTypes('paths', ['array']);
+        $resolver->addAllowedTypes('filePatterns', ['array']);
         return $resolver;
     }
 
