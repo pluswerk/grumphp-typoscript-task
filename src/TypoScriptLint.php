@@ -10,8 +10,8 @@ use GrumPHP\Task\AbstractLinterTask;
 use GrumPHP\Task\Context\ContextInterface;
 use GrumPHP\Task\Context\GitPreCommitContext;
 use GrumPHP\Task\Context\RunContext;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Pluswerk\TypoScriptLinter\Sniff\RepeatingRValueSniff;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class TypoScriptLint extends AbstractLinterTask
 {
@@ -47,7 +47,11 @@ final class TypoScriptLint extends AbstractLinterTask
                         'class' => 'OperatorWhitespace',
                     ],
                     3 => [
-                        'class' => 'RepeatingRValue',
+                        'class' => RepeatingRValueSniff::class,
+                        'parameters' => [
+                            'ignoreClassNameValues' => true,
+                            'ignorePatterns' => []
+                        ]
                     ],
                     4 => [
                         'class' => 'DuplicateAssignment',
