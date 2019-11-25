@@ -1,4 +1,4 @@
-[![Packagist](https://img.shields.io/packagist/v/pluswerk/grumphp-typoscript-task.svg?style=flat-square)](https://packagist.org/packages/pluswerk/grumphp-xliff-task)
+[![Packagist](https://img.shields.io/packagist/v/pluswerk/grumphp-typoscript-task.svg?style=flat-square)](https://packagist.org/packages/pluswerk/grumphp-typoscript-task)
 [![Packagist](https://img.shields.io/packagist/l/pluswerk/grumphp-typoscript-task.svg?style=flat-square)](https://opensource.org/licenses/LGPL-3.0)
 [![Build Status](https://travis-ci.com/pluswerk/grumphp-typoscript-task.svg?branch=master)](https://travis-ci.com/pluswerk/grumphp-typoscript-task)
 
