@@ -1,5 +1,7 @@
 # grumphp-typoscript-task
 
+## Quick guide
+
 GrumPHP task to lint TYPO3 CMS TypoScript files.
 
 ### grumphp.yml
@@ -17,3 +19,7 @@ parameters:
 ### Composer
 
 ``composer require --dev pluswerk/grumphp-typoscript-task``
+
+## Configuration
+
+The linter can be configured in the grumphp.yml file in the same way as without grumphp see [TypoScript Linter configuration](https://github.com/martin-helmich/typo3-typoscript-lint#configuration)
