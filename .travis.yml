@@ -30,5 +30,6 @@ install:
   - if [ "$dependencies" = "highest" ]; then composer require phpro/grumphp:*  --no-progress --no-scripts --no-suggest -n; fi;
 
 script:
+  - ./.Build/bin/grumphp run
   - ./.Build/bin/phpunit
 
