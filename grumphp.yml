@@ -13,5 +13,8 @@ parameters:
       tab_width: 4
     jsonlint:
       detect_key_conflicts: true
+    plus_bom_fixer:
+      metadata:
+        priority: 1
   extensions:
-    - Pluswerk\TypoScriptLinter\ExtensionLoader
+    - PLUS\GrumPHPBomTask\ExtensionLoader
