@@ -22,9 +22,11 @@ parameters:
 
 ## Configuration
 
+### typoscript linter
+
 The linter can be configured in the grumphp.yml file in the same way as without grumphp see [TypoScript Linter configuration](https://github.com/martin-helmich/typo3-typoscript-lint#configuration)
 
-### Example:
+#### Example:
 
 ```yaml
 parameters:
@@ -39,4 +41,28 @@ parameters:
         - class: DeadCode
   extensions:
     - Pluswerk\TypoScriptLinter\ExtensionLoader
+```
+
+### triggered_by
+
+The file extensions, which trigger the linter.
+
+```yaml
+parameters:
+  tasks:
+    typoscriptlint:
+      triggered_by:
+        - 'typoscript'
+```
+
+### ignore_patterns
+
+Ignore file with grumphp ignore patterns.
+
+```yaml
+parameters:
+  tasks:
+    typoscriptlint:
+      ignore_patterns:
+        - 'pattern'
 ```
