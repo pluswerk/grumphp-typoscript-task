@@ -1,5 +1,8 @@
 # grumphp-typoscript-task
 
+This package adds a TYPO3 CMS TypoScript file linter task to grumphp based
+on [martin-helmich/typo3-typoscript-lint](https://github.com/martin-helmich/typo3-typoscript-lint) of Martin Helmich.
+
 ## Quick guide
 
 GrumPHP task to lint TYPO3 CMS TypoScript files.
