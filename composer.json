@@ -2,7 +2,7 @@
     "name": "pluswerk/grumphp-typoscript-task",
     "description": "Connects the TypoScript linter from Martin Helmich with grumphp and adds some sniffer.",
     "type": "library",
-    "license": "MIT",
+    "license": "GPL-3.0-or-later",
     "keywords": ["TYPO3 CMS", "TypoScript"],
     "authors": [
         {
