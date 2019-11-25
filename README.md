@@ -1,3 +1,5 @@
+[![Travis](https://img.shields.io/travis/Kanti/LJSON.svg?style=flat-square)](https://travis-ci.com/pluswerk/grumphp-typoscript-task)
+
 # grumphp-typoscript-task
 
 This package adds a TYPO3 CMS TypoScript file linter task to grumphp based
