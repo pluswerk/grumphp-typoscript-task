@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * Class ExtensionLoaderTest
  * @package Pluswerk\TypoScriptLinter\Tests
- * @covers ExtensionLoader
+ * @covers Pluswerk\TypoScriptLinter\ExtensionLoader
  */
 final class ExtensionLoaderTest extends TestCase
 {
