@@ -10,6 +10,11 @@ use PHPUnit\Framework\TestCase;
 use Pluswerk\TypoScriptLinter\Sniff\RepeatingRValueSniff;
 use Pluswerk\TypoScriptLinter\Sniff\RightValueSniffer;
 
+/**
+ * Class RepeatingRValueSniffTest
+ * @package Pluswerk\TypoScriptLinter\Tests\Sniff
+ * @covers \Pluswerk\TypoScriptLinter\Sniff\RepeatingRValueSniff
+ */
 class RepeatingRValueSniffTest extends TestCase
 {
     /**

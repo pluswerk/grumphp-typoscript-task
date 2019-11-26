@@ -33,3 +33,6 @@ script:
   - ./.Build/bin/grumphp run
   - ./.Build/bin/phpunit
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t b00d641a-6d30-4092-85b6-200f4226a852
+

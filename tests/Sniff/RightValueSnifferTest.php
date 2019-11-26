@@ -8,6 +8,11 @@ use Helmich\TypoScriptParser\Tokenizer\Token;
 use PHPUnit\Framework\TestCase;
 use Pluswerk\TypoScriptLinter\Sniff\RightValueSniffer;
 
+/**
+ * Class RightValueSnifferTest
+ * @package Pluswerk\TypoScriptLinter\Tests\Sniff
+ * @covers \Pluswerk\TypoScriptLinter\Sniff\RightValueSniffer
+ */
 final class RightValueSnifferTest extends TestCase
 {
     /**
