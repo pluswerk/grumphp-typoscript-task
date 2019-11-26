@@ -44,17 +44,4 @@ final class RepeatingRValueSniff implements TokenStreamSniffInterface
             }
         }
     }
-
-    /**
-     * @param string $value
-     *
-     * @return bool
-     */
-    private function isClassName(string $value): bool
-    {
-        if (class_exists($value)) {
-            return true;
-        }
-        return false;
-    }
 }

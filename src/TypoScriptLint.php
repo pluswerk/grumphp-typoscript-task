@@ -36,7 +36,7 @@ final class TypoScriptLint extends AbstractLinterTask
                         'class'      => 'Indentation',
                         'parameters' => [
                             'useSpaces'        => true,
-                            'indentPerLevel'   => 4,
+                            'indentPerLevel'   => 2,
                             'indentConditions' => false,
                         ],
                     ],

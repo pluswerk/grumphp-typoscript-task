@@ -19,7 +19,7 @@ use Helmich\TypoScriptParser\Tokenizer\TokenizerException;
 use SplFileInfo;
 use Symfony\Component\Config\Definition\Processor;
 
-final class TypoScriptLinter implements LinterInterface
+class TypoScriptLinter implements LinterInterface
 {
     /**
      * @var Tokenizer
@@ -149,9 +149,13 @@ final class TypoScriptLinter implements LinterInterface
         return $file;
     }
 
+    /**
+     * @return bool
+     *
+     * @todo Check if we have to check for something is installed?
+     */
     public function isInstalled(): bool
     {
-        $extesions = get_loaded_extensions();
         return true;
     }
 }
