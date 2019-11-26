@@ -7,6 +7,7 @@ use GrumPHP\Collection\FilesCollection;
 use GrumPHP\Configuration\GrumPHP;
 use GrumPHP\Exception\RuntimeException;
 use GrumPHP\Runner\TaskResult;
+use GrumPHP\Task\Context\GitPreCommitContext;
 use GrumPHP\Task\Context\RunContext;
 use PHPUnit\Framework\TestCase;
 use Pluswerk\TypoScriptLinter\TypoScriptLint;
@@ -132,5 +133,37 @@ final class TypoScriptLintTest extends TestCase
         $result = $typoScriptLint->run($context);
 
         $this->assertSame(TaskResult::FAILED, $result->getResultCode());
+    }
+
+    /**
+     * @test
+     */
+    public function ifContextIsGitPreCommitContextTheLinterCanRun(): void
+    {
+        $grumphp = $this->createMock(GrumPHP::class);
+        $typoScriptLinter = $this->createMock(TypoScriptLinter::class);
+
+        $fileCollection = new FilesCollection();
+        $context = new GitPreCommitContext($fileCollection);
+
+        $typoScriptLint = new TypoScriptLint($grumphp, $typoScriptLinter);
+
+        $this->assertTrue($typoScriptLint->canRunInContext($context));
+    }
+
+    /**
+     * @test
+     */
+    public function ifContextIsRunContextTheLinterCanRun(): void
+    {
+        $grumphp = $this->createMock(GrumPHP::class);
+        $typoScriptLinter = $this->createMock(TypoScriptLinter::class);
+
+        $fileCollection = new FilesCollection();
+        $context = new RunContext($fileCollection);
+
+        $typoScriptLint = new TypoScriptLint($grumphp, $typoScriptLinter);
+
+        $this->assertTrue($typoScriptLint->canRunInContext($context));
     }
 }

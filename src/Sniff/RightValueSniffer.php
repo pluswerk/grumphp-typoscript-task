@@ -6,7 +6,7 @@ namespace Pluswerk\TypoScriptLinter\Sniff;
 use Helmich\TypoScriptLint\Linter\Report\Issue;
 use Helmich\TypoScriptParser\Tokenizer\Token;
 
-class RightValueSniffer
+final class RightValueSniffer
 {
     // Default ignore patterns
     private const CONSTANT_EXPRESSION = '\{\$[a-zA-Z0-9_\.]+\}';

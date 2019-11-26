@@ -16,7 +16,7 @@ final class TypoScriptLintError extends LintError
             $issue->getSeverity(),
             $issue->getMessage(),
             $filePathName,
-            $issue->getLine()
+            $issue->getLine() ?? -1
         );
     }
 }
