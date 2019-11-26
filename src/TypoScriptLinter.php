@@ -19,7 +19,7 @@ use Helmich\TypoScriptParser\Tokenizer\TokenizerException;
 use SplFileInfo;
 use Symfony\Component\Config\Definition\Processor;
 
-class TypoScriptLinter implements LinterInterface
+final class TypoScriptLinter implements LinterInterface
 {
     /**
      * @var Tokenizer
